@@ -28,8 +28,17 @@ type Update struct {
 }
 
 type Message struct {
-	Text string `json:"text"`
-	Chat *Chat  `json:"chat"`
+	Text   string       `json:"text"`
+	Chat   *Chat        `json:"chat"`
+	Photos []*PhotoSize `json:"photo"`
+}
+
+type PhotoSize struct {
+	FileID       string `json:"file_id"`             // ID файла для скачивания или повторного использования
+	FileUniqueID string `json:"file_unique_id"`      // Уникальный ID, постоянный для файла (нельзя использовать для скачивания)
+	Width        int    `json:"width"`               // Ширина фото
+	Height       int    `json:"height"`              // Высота фото
+	FileSize     int    `json:"file_size,omitempty"` // Размер файла (опционально), в байтах
 }
 
 type CallbackQuery struct {

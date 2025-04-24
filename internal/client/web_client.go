@@ -88,3 +88,12 @@ func SendMessage(token string, req *requests.SendMessageRequest) (*responses.Mes
 	}
 	return doTelegramRequest[responses.Message](requestUrl, http.MethodPost, bytes.NewBuffer(jsonBody))
 }
+
+func SendPhoto(token string, req *requests.SendPhotoByIdRequest) (*responses.Message, error) {
+	requestUrl := resolveUrl(token, common.SendPhoto)
+	jsonBody, err := json.Marshal(req)
+	if err != nil {
+		return nil, err
+	}
+	return doTelegramRequest[responses.Message](requestUrl, http.MethodPost, bytes.NewBuffer(jsonBody))
+}

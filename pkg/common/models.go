@@ -3,8 +3,9 @@ package common
 import "github.com/dsvdev/telego/pkg/common/sending"
 
 type Message struct {
-	ChatID int64
-	Text   string
+	ChatID  int64
+	Text    string
+	PhotoID string
 }
 
 // MessageProcessor определяет функцию-обработчик входящих сообщений.

@@ -64,10 +64,14 @@ func (b *longpollingTelegramBot) gettingUpdates() {
 		for _, update := range *updates {
 			if update.Message != nil {
 				log.Printf("Got update: %v", update.Message)
-				b.inputUpdates <- &common.Message{
+				msg := &common.Message{
 					ChatID: update.Message.Chat.ID,
 					Text:   update.Message.Text,
 				}
+				if len(update.Message.Photos) > 0 {
+					msg.PhotoID = update.Message.Photos[0].FileID
+				}
+				b.inputUpdates <- msg
 			}
 			b.offset = update.ID + 1
 		}

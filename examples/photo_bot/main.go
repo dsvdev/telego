@@ -12,9 +12,18 @@ func main() {
 	echoBot := bot.NewLongpollingTelegramBot(config.BOT_TOKEN)
 
 	echo := func(inputMessage *common.Message, outbox chan sending.TelegramSendable) {
-		outbox <- &sending.SendMessage{
-			ChatID: inputMessage.ChatID,
-			Text:   "Your inputMessage: " + inputMessage.Text,
+		if inputMessage.PhotoID == "" {
+			outbox <- &sending.SendMessage{
+				ChatID: inputMessage.ChatID,
+				Text:   "Пришлите фото для определения ID",
+			}
+			return
+		}
+
+		outbox <- &sending.SendPhotoById{
+			ChatID:  inputMessage.ChatID,
+			PhotoID: inputMessage.PhotoID,
+			Text:    inputMessage.PhotoID,
 		}
 	}
 
