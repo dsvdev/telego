@@ -2,17 +2,17 @@ package client
 
 import (
 	"bytes"
-	"com.github/dsvdev/telego/internal/client/models/requests"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/dsvdev/telego/internal/client/models/requests"
 	"io"
 	"net/http"
 	"net/url"
 	"strconv"
 
-	"com.github/dsvdev/telego/internal/client/models/common"
-	"com.github/dsvdev/telego/internal/client/models/responses"
+	"github.com/dsvdev/telego/internal/client/models/common"
+	"github.com/dsvdev/telego/internal/client/models/responses"
 )
 
 const (

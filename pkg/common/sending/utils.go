@@ -1,8 +1,8 @@
 package sending
 
 import (
-	"com.github/dsvdev/telego/internal/client/models/requests"
-	"com.github/dsvdev/telego/internal/client/models/requests/keyboard"
+	"github.com/dsvdev/telego/internal/client/models/requests"
+	"github.com/dsvdev/telego/internal/client/models/requests/keyboard"
 )
 
 func SendMessageToRequest(message *SendMessage) *requests.SendMessageRequest {

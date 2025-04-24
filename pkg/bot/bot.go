@@ -1,9 +1,9 @@
 package bot
 
 import (
-	"com.github/dsvdev/telego/internal/client"
-	"com.github/dsvdev/telego/pkg/common"
-	"com.github/dsvdev/telego/pkg/common/sending"
+	"github.com/dsvdev/telego/internal/client"
+	"github.com/dsvdev/telego/pkg/common"
+	"github.com/dsvdev/telego/pkg/common/sending"
 	"log"
 	"sync"
 )
@@ -57,6 +57,9 @@ func (b *longpollingTelegramBot) gettingUpdates() {
 		updates, err := client.GetUpdates(b.token, b.offset)
 		if err != nil {
 			log.Printf("Error getting updates: %v", err)
+		}
+		if updates == nil {
+			continue
 		}
 		for _, update := range *updates {
 			if update.Message != nil {

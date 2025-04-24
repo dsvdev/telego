@@ -1,6 +1,6 @@
 package common
 
-import "com.github/dsvdev/telego/pkg/common/sending"
+import "github.com/dsvdev/telego/pkg/common/sending"
 
 type Message struct {
 	ChatID int64

@@ -1,7 +1,7 @@
 package sending
 
 import (
-	"com.github/dsvdev/telego/internal/client"
+	"github.com/dsvdev/telego/internal/client"
 )
 
 type TelegramSendable interface {

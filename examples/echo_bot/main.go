@@ -1,9 +1,9 @@
 package main
 
 import (
-	"com.github/dsvdev/telego/pkg/bot"
-	"com.github/dsvdev/telego/pkg/common"
-	"com.github/dsvdev/telego/pkg/common/sending"
+	"github.com/dsvdev/telego/pkg/bot"
+	"github.com/dsvdev/telego/pkg/common"
+	"github.com/dsvdev/telego/pkg/common/sending"
 	"sync"
 )
 
