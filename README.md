@@ -10,7 +10,7 @@
 Для установки используйте `go get`:
 
 ```sh
- go get github.com/yourusername/telegram-bot-helper
+ go get github.com/dsvdev/telego
 ```
 
 ## 📖 Быстрый старт
@@ -21,11 +21,29 @@
 package main
 
 import (
-    "github.com/dsvdev/telego"
+	"com.github/dsvdev/telego/pkg/bot"
+	"com.github/dsvdev/telego/pkg/common"
+	"com.github/dsvdev/telego/pkg/common/sending"
+	"sync"
 )
 
+const token = "YOUR_TOKEN_HERE"
+
 func main() {
-    // not implemented yet
+	echoBot := bot.NewLongpollingTelegramBot(token)
+
+	echo := func(inputMessage *common.Message, outbox chan sending.TelegramSendable) {
+		outbox <- &sending.SendMessage{
+			ChatID: inputMessage.ChatID,
+			Text:   "Your inputMessage: " + inputMessage.Text,
+		}
+	}
+
+	echoBot.StartProcessUpdates(echo)
+
+	var wg sync.WaitGroup
+	wg.Add(1)
+	wg.Wait()
 }
 ```
 
