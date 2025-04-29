@@ -14,3 +14,6 @@ type SendPhotoByIdRequest struct {
 	ReplyMarkup keyboard.Keyboard `json:"reply_markup,omitempty"`
 	Photo       string            `json:"photo"`
 }
+type SendDiceRequest struct {
+	ChatID int64 `json:"chat_id"`
+}

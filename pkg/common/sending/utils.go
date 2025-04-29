@@ -43,6 +43,12 @@ func SendPhotoByIdToRequest(message *SendPhotoById) *requests.SendPhotoByIdReque
 	return req
 }
 
+func SendDiceToRequest(message *sendDice) *requests.SendDiceRequest {
+	return &requests.SendDiceRequest{
+		ChatID: message.ChatID,
+	}
+}
+
 func keyboardButtonsToInlineKeyboardRequest(buttons KeyboardButtons) *keyboard.InlineKeyboardMarkup {
 	res := &keyboard.InlineKeyboardMarkup{
 		InlineKeyboard: make([][]keyboard.InlineKeyboardButton, 0, len(buttons)),

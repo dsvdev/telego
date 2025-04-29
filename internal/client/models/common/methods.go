@@ -7,4 +7,5 @@ const (
 	GetUpdates  ClientMethod = "getUpdates"
 	SendMessage ClientMethod = "sendMessage"
 	SendPhoto   ClientMethod = "sendPhoto"
+	SendDice    ClientMethod = "sendDice"
 )

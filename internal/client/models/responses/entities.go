@@ -31,6 +31,11 @@ type Message struct {
 	Text   string       `json:"text"`
 	Chat   *Chat        `json:"chat"`
 	Photos []*PhotoSize `json:"photo"`
+	Dice   Dice         `json:"dice"`
+}
+
+type Dice struct {
+	Value int `json:"value"`
 }
 
 type PhotoSize struct {
