@@ -97,6 +97,7 @@ func (s *sendDice) SendToTelegram(token string) error {
 	sdr := SendDiceToRequest(s)
 	response, err := client.SendDice(token, sdr)
 	if err != nil {
+		close(s.done)
 		return err
 	}
 	s.value = response.Dice.Value
